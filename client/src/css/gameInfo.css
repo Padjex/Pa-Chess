@@ -1,0 +1,291 @@
+.game-info-wrapper {
+    position: absolute;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.137);
+
+    width: 100%;
+    height: 9%;
+
+    max-width: 1920px;
+    max-height: 60px;
+    min-height: 44px;
+
+
+    pointer-events: none;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    font-size: 19.4px;
+    /* font-family: 'Italianno' !important; */
+    /* font-family: 'Josefin Sans' !important; */
+    /* font-family: 'Pacifico' !important; */
+    font-weight: 900;
+
+    letter-spacing: 6px;
+
+    /* overflow: hidden; */
+    transition: all 0.3s;
+
+}
+
+.game-container {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.left-container {
+    left: -3.4px;
+    top: -3.4px;
+    /* background: linear-gradient(to right, rgba(247, 247, 201, 0.9),
+            rgba(248, 231, 103, 0.4)); */
+    background: linear-gradient(to right, rgba(255, 225, 148, 0.9),
+            rgba(236, 151, 72, 0.639));
+
+    color: #2e0101;
+    -webkit-text-stroke: 1.5px #2e0101;
+    /* border: 3.4px solid rgb(62, 6, 6); */
+    /* border: 3.4px solid #180000; */
+    border: 2px solid #2e0101;
+
+    border-radius: 0 0 14px 0;
+
+
+    text-shadow: 1px 4px 4px #020001;
+    transition: background 0.6s, color 0.6s, -webkit-text-stroke 0.6s, border-color 0.64s;
+
+
+}
+
+.right-container {
+    right: -3.4px;
+    top: -3.4px;
+    background: linear-gradient(to right, rgb(29, 0, 0),
+            rgba(162, 22, 22, 0.5));
+
+
+    /* color: rgba(202, 207, 136, 0.98);
+    -webkit-text-stroke: 1px rgba(202, 207, 136, 0.98); */
+    color: #ffebb8fc;
+
+    -webkit-text-stroke: 0px #ffebb8fc;
+
+
+    /* border: 3.4px solid rgba(255, 222, 151, 0.862); */
+    border: 2px solid #2e0101;
+    border-radius: 0 0 0 14px;
+
+    /* text-shadow: 2px 2px 4px #ffebb8fc; */
+    text-shadow: 1px 4px 4px #020001;
+    transition: background 0.6s, color 0.6s, -webkit-text-stroke 0.6s, border-color 0.64s;
+
+
+}
+
+.name-con {
+    position: absolute;
+
+    width: 29%;
+    height: 100%;
+
+    max-height: 100%;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    box-sizing: border-box;
+
+    /* border-radius:  20px; */
+
+    padding-top: 4px;
+
+    min-width: 240px;
+    max-width: 340px;
+}
+
+.waiting-dots-container {
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.waiting-dots-container span {
+
+    font-size: 24px;
+    -webkit-text-stroke: 1.64px #ffebb8fc;
+}
+
+/* TIMER */
+.timer-wrapper {
+    position: absolute;
+    top: -3.4px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    width: 280px;
+    height: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    /* border: 3.4px solid rgb(131, 64, 16); */
+    border-radius: 0 0 14px 14px;
+    /* background: linear-gradient(to right, rgba(40, 1, 1, 0.88),
+            rgba(236, 236, 161, 0.571)); */
+    /* background-color: aliceblue; */
+
+    /* background: linear-gradient(to right,
+            rgba(40, 1, 1, 0.88) 0%,
+            rgba(40, 1, 1, 0.88) 40%,
+            rgba(236, 236, 161, 0.571) 100%); */
+
+    display: flex;
+
+    text-shadow: 1px 1px 4px #070104;
+    border: 2px solid #2e0101;
+}
+
+.time-left,
+.time-right {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    letter-spacing: 1px;
+    font-size: 34px;
+
+    text-shadow: 1px 4px 4px #020001;
+
+}
+
+.time-left {
+
+    border-right: 1px solid #2e0101;
+
+    color: #2e0101;
+    -webkit-text-stroke: 1.5px #2e0101;
+
+    /* background: linear-gradient(to right, rgba(247, 247, 201, 0.9),
+            rgba(248, 231, 103, 0.4)); */
+
+    background: linear-gradient(to left, rgba(255, 225, 148, 0.9),
+            rgba(238, 131, 55, 0.594));
+}
+
+.time-right {
+
+    border-left: 1px solid #2e0101;
+
+    /* border-right: 1px solid rgb(214, 165, 129); */
+    /* border-right: 1px solid rgb(45, 20, 2); */
+    /* border-right: 1px solid rgb(47, 20, 2); */
+
+    /* color: rgba(236, 240, 168, 0.98); */
+    /* color: #f4d27dfc; */
+    /* -webkit-text-stroke: 1px rgba(236, 240, 168, 0.98); */
+    /* -webkit-text-stroke: 1px #ffe4a1fc; */
+    background: linear-gradient(to left, rgba(29, 0, 0, 0.84),
+            rgba(162, 22, 22, 0.5));
+
+    color: #ffebb8fc;
+
+    -webkit-text-stroke: 0px #ffebb8fc;
+
+}
+
+/*//// **** ////*/
+/*//// RESPONSIVE GAMEINFO ////*/
+/*//// **** ////*/
+
+@media only screen and (max-width: 900px) and (min-width: 767px) {
+    .game-info-wrapper {
+        height: 44px;
+        font-size: 16.4px;
+    }
+
+    .time-left,
+    .time-right {
+        font-size: 28.4px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .game-info-wrapper {
+        height: 84px;
+        max-height: 124px;
+        font-size: 16.4px;
+    }
+
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-container,
+    .right-container,
+    .timer-wrapper {
+        position: static;
+        width: 110% !important;
+        max-width: none;
+        transform: translateX(0) !important;
+        border: none;
+    }
+
+    .timer-wrapper {
+        flex: 0.3;
+        border-bottom: 1px solid #2e0101;
+        border-top: 1px solid #2e0101;
+    }
+
+    .left-container,
+    .right-container {
+        flex: 0.35;
+    }
+
+    .left-container {
+        border-top: 2px solid #2e0101;
+        /* border-bottom: 2px solid #2e0101; */
+        background: linear-gradient(to left, rgba(255, 225, 148, 0.9),
+                rgba(236, 151, 72, 0.639));
+
+    }
+
+    .right-container {
+        /* border-top: 2px solid #2e0101; */
+        border-bottom: 2px solid #2e0101;
+        background: linear-gradient(to left, rgb(29, 0, 0),
+                rgba(162, 22, 22, 0.5));
+    }
+
+
+    .time-left,
+    .time-right {
+        border: none;
+        border-left: 1px solid #2e0101;
+        border-right: 1px solid #2e0101;
+    }
+
+
+
+    .time-left,
+    .time-right {
+        font-size: 28.4px;
+    }
+}

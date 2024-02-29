@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Norican&family=Pacifico&display=swap');
+
+* {
+    /* font-family: 'Pacifico' !important; */
+    font-family: 'Italianno';
+    /* font-family: 'Norican' !important; */
+
+    user-select: none;
+}
+
+.interface {
+    /* font-family: 'Italianno' !important; */
+    transition: height 0.3s ease;
+    box-sizing: border-box;
+    position: absolute;
+    height: 70vh;
+
+    max-height: 840px;
+    /* min-height: 600px; */
+
+
+    top: 47%;
+    left: -15%;
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    background: linear-gradient(to bottom, rgba(255, 230, 148, 0.94),
+            rgba(42, 4, 12, 0.943));
+
+    /* background: linear-gradient(to bottom, #ffd97ad8,
+            #38090bb8); */
+
+    clip-path: polygon(0 50%, 10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%);
+
+    border: 9px solid #180000;
+
+    white-space: nowrap;
+    text-overflow: clip;
+    display: flex;
+    justify-content: center;
+}
+
+.interface-container {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+
+    min-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.interface h1 {
+    margin: 4px 2vh;
+    height: 20%;
+    /* height: 24%; */
+    width: 100%;
+
+
+    font-size: 14vh;
+    text-align: center;
+    color: #2e0101;
+
+    font-weight: 500;
+
+    text-shadow: 4px 4px 8px rgb(10, 10, 10);
+    -webkit-text-stroke: 2px #2e0101;
+
+    position: relative;
+}
+
+.interface h1::after {
+
+    content: '';
+    position: absolute;
+
+    background-color: #2e0101;
+
+    /* bottom: 4px; */
+    bottom: -9%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 3px;
+    width: 70%;
+}
+
+.form-container {
+    width: 100%;
+    height: 70%;
+
+    max-width: 1400px;
+
+    display: flex;
+    position: relative;
+    /* flex-direction: row; */
+}
+
+.form-container::after {
+    content: '';
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 70%;
+    width: 3px;
+
+    background-color: #2e0101;
+
+    transition: all 0.3s ease;
+}
+
+.name-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.name-container h2,
+.play-container h2 {
+    /* margin: 4px; */
+    /* margin: 1%; */
+    margin: 2px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #2e0101;
+    font-size: 6vh;
+    font-weight: 400;
+
+    text-shadow: 4px 8px 8px rgb(10, 10, 10);
+    -webkit-text-stroke: 1px #2e0101;
+}
+
+.form-container input {
+    /* font-family: 'Italianno'; */
+
+    appearance: none !important;
+
+    height: 4vh;
+    min-height: 30px;
+
+
+    width: 34%;
+
+    max-width: 320px;
+    min-width: 220px;
+
+    margin: 5px;
+    margin-bottom: 44px;
+    padding-left: 10px;
+
+    font-size: 24px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px #2e0101;
+
+    letter-spacing: 4px;
+
+    color: #2e0101 !important;
+
+    border: 2.4px solid #370202;
+    border-radius: 6px;
+
+    box-shadow: 2px 9px 14px rgba(25, 0, 0, 0.848);
+
+    background: linear-gradient(to bottom, rgba(62, 0, 0, 0.817),
+            rgba(238, 228, 170, 0.526));
+
+    outline: none;
+}
+
+.form-container input::placeholder {
+    /* font-family: 'Italianno'; */
+    /* color: #dddddd; */
+    font-size: 24px;
+    -webkit-text-stroke: 0.5px #2e0101;
+
+}
+
+.form-container input:focus {
+    outline: none;
+    border: 2px solid #2e0101;
+    border-radius: 6px;
+
+}
+
+.form-container input::selection {
+    background-color: #210000;
+    /* Postavite boju pozadine prema vašim željama */
+    color: #cdcdcd !important;
+    -webkit-text-stroke: 0.5px #f3f3f3;
+    /* Postavite boju teksta prema vašim željama */
+    /* Dodajte druge stilove prema potrebi */
+}
+
+.play-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    height: 100%;
+
+}
+
+.play-container div {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-container input {
+    margin-top: 0.5vh;
+    margin-bottom: 3vh;
+}
+
+.play-container h2 {
+    margin-top: 3vh;
+}
+
+.name-container h2 {
+    margin-bottom: 1vh;
+}
+
+/* button */
+.button {
+    /* font-family: 'Italianno' !important; */
+    letter-spacing: 9px;
+    appearance: none;
+    border-radius: 10px;
+    border-style: none;
+
+    background-color: #4f2e2e;
+    background: linear-gradient(to top, rgba(40, 1, 1, 1),
+            rgb(143, 64, 64));
+
+    box-shadow: #140101b3 0 -12px 6px inset;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #ffebb8fc;
+    -webkit-text-stroke: 1px #ffebb8fc;
+    /* font-size: 24px; */
+    font-size: 150%;
+    font-weight: 900;
+
+    outline: none;
+    /* width: 214px; */
+    height: 5vh;
+    width: 44%;
+
+
+    min-height: 40px;
+    max-height: 70px;
+
+    max-width: 360px;
+    min-width: 260px;
+
+    /* padding-top: 1vh; */
+    /* padding-bottom: 1vh; */
+
+
+
+    quotes: auto;
+    /* text-align: center; */
+
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+.button:hover {
+    /* background-color: #FFC229; */
+    color: #1e0c02;
+    -webkit-text-stroke: 1px #1e0c02;
+
+    transform: scale(1.0345);
+}
+
+.button:active {
+    box-shadow: #1e0c02 0 -6px 8px inset;
+    transform: scale(0.984);
+}
+
+.h2-play-friend {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px;
+}
+
+
+
+/* Icon */
+.icon {
+    position: absolute;
+
+    height: 19%;
+    max-height: 140px;
+
+    /* top: 20px; */
+    top: 4%;
+    left: 9%;
+
+    filter: brightness(0.45);
+    /* filter: hue-rotate(24121deg); */
+    /* filter: saturate(90%); */
+    /* filter: sepia(100%); */
+
+    /* filter: grayscale(100%); */
+    /* filter: invert(30%); */
+    transition: all 0.5s;
+
+}
+
+/*//// **** ////*/
+/*//// RESPONSIVE INTERFACE ////*/
+/*//// **** ////*/
+
+
+@media only screen and (min-height: 900px) {
+    .interface h1 {
+        font-size: 164px;
+    }
+
+    .form-container h2 {
+        font-size: 54px;
+        /* background-color: #180000; */
+    }
+
+    .play-container h2 {
+        margin-top: 30px;
+    }
+
+    .play-container input {
+        margin-bottom: 32px;
+    }
+
+}
+
+@media only screen and (max-width:1200px) and (min-width: 767px) and (min-height: 900px) {
+
+    .form-container h2 {
+        font-size: 54px;
+        /* background-color: #180000; */
+    }
+
+    .icon {
+        left: -20px;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .interface {
+        height: 100%;
+        top: 0;
+        transform: translateY(0);
+        /* background: #1e0c02; */
+
+        min-height: 500px;
+    }
+
+    .interface h1 {
+        font-size: 84px;
+    }
+
+    .form-container h2 {
+        font-size: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .interface {
+        /* height: 100vh !important; */
+        height: 100vh;
+        /* top: 50% !important; */
+        top: 0;
+        transform: translateY(0%);
+
+
+        max-height: none;
+        min-width: none;
+        min-height: 700px;
+    }
+
+
+    .interface h1 {
+        font-size: 80px;
+        transform: translateY(50%);
+        flex: 0.1;
+    }
+
+    .interface h1::after {
+        bottom: 0%;
+    }
+
+    .icon {
+        left: 70px;
+        top: 4px;
+        height: 80px;
+    }
+
+    .form-container {
+        flex: 0.9;
+        flex-direction: column;
+        padding-bottom: 14%;
+        padding-top: 7.4%;
+    }
+
+    .form-container::after {
+        /* top: 0%; */
+        left: 50%;
+        transform: rotate(90deg) translate(0%, 0%);
+        /* transform: translate(0, 0); */
+    }
+
+    .name-container {
+        flex: 0.3;
+
+    }
+
+    .play-container {
+        flex: 0.7;
+        padding-bottom: 29%;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .icon {
+        left: 80px;
+    }
+}

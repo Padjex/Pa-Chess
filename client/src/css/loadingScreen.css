@@ -1,0 +1,72 @@
+.loading-screen {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    background-color: rgb(24, 19, 19);
+
+
+}
+
+.loading-container {
+    font-family: 'Italianno' !important;
+    position: relative;
+
+    font-size: 60px;
+    /* line-height: 2.5rem; */
+    /* font-size: 50px; */
+    /* line-height: 40px; */
+    font-weight: 700;
+    /* text-overflow: ellipsis; */
+    white-space: nowrap;
+    transition: all 0.4s;
+}
+
+.progress-bar {
+
+    padding: 14px;
+    position: absolute;
+    overflow: hidden;
+
+    top: 0px;
+    left: 0px;
+
+    white-space: nowrap;
+    text-overflow: clip;
+    transition-duration: 500ms;
+    text-decoration-line: underline;
+
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    /* color: rgba(56, 14, 14, 0.4); */
+    color: #deb59e;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    /* text-shadow: 2px 2px 4px 2e0101, -4px -4px 16px 2e0101; */
+
+
+}
+
+.default-text {
+    padding: 14px;
+    color: #ffe4a1fc;
+    opacity: 40%;
+}
+
+@media only screen and (max-width: 567px) {
+    .loading-container {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .loading-container {
+        font-size: 110px;
+    }
+}
