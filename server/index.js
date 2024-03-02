@@ -382,9 +382,10 @@ function startPlayerTimer(socketId) {
     });
 
     if (players[socketId].timeRemaining <= 0) {
-      // Vreme je isteklo, igrač je izgubio ili nešto drugo
       clearInterval(playarTime[socketId]);
-      // Dodajte logiku za kraj igre ili bilo šta što želite
+      io.in(players[socketId].room).emit("time_up", {
+        socketId: socketId,
+      });
       console.log("Time is up");
     }
   }, 1000);

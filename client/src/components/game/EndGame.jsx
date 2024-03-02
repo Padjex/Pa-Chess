@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Sparkles } from "@react-three/drei";
+import { Sparkles, Text } from "@react-three/drei";
 import useGame from "../../store/useGame";
 import { useFrame } from "@react-three/fiber";
+import { euclideanModulo } from "three/src/math/MathUtils";
 
 export default function EndGame() {
   const endGame = useGame((state) => state.endGame);
+  const players = useGame((state) => state.players);
   const playerSockedID = useGame((state) => state.playerSockedID);
   const [confirmedEnd, setConfirmedEnd] = useState(false);
   const [winner, setWinner] = useState(false);
@@ -25,6 +27,25 @@ export default function EndGame() {
     }
   }, [endGame]);
 
+  const winnerPlayer = players.players.find(
+    (player) => player.socketId === endGame.winner
+  );
+
+  const winnerName = winnerPlayer ? winnerPlayer.name : false;
+
+  const text = winner === "stalemate" ? "stalemate" : winnerName + "  wins";
+
+  // Temporary solution!
+  useEffect(() => {
+    console.log(endGame);
+    if (endGame) {
+      setTimeout(() => {
+        localStorage.clear();
+        window.location.reload();
+      }, 9000);
+    }
+  }, [endGame]);
+
   return (
     <>
       {endGame && (
@@ -34,9 +55,17 @@ export default function EndGame() {
             size={4}
             scale={[5, 2, 5]}
             position-y={1}
-            speed={0.4}
-            color="#dddddd"
+            speed={0.24}
+            color="#fae364"
           />
+          <Text
+            scale={0.4}
+            position={[0, 0.9, 0]}
+            color="#f5ecba"
+            font="./Italiana_Regular.json"
+          >
+            {text}
+          </Text>
         </>
       )}
     </>

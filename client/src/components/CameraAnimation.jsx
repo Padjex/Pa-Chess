@@ -78,7 +78,7 @@ export const CameraAnimation = () => {
       const tl2 = gsap.timeline();
 
       tl.to(groupCameraRef.current.rotation, {
-        y: Math.PI * 34,
+        y: Math.PI * 39.4,
         duration: 240,
         ease: "linear",
       });

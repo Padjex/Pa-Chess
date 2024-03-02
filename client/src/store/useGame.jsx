@@ -204,6 +204,21 @@ export default create((set, get) => {
     }
   });
 
+  // Socket event triggered when one of the players runs out of time.
+  socket.on("time_up", (data) => {
+    const winner = get().players.players.find(
+      (player) => player.socketId !== data.socketId
+    );
+    const result = get().playerSockedID === winner.socketId ? "win" : "lose";
+    set({
+      endGame: {
+        result: result,
+        winner: winner.socketId,
+        confirm: true,
+      },
+    });
+  });
+
   // Socket event triggered when the opposing player emits a win or a draw; this event will check if the results match and then respond whether everything is fine.
   socket.on("end_game_confirmation", (data) => {
     const playerColor = get().playerColor;
