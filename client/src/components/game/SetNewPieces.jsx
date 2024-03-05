@@ -21,7 +21,7 @@ export default function SetNewPieces() {
   const gropuRef = useRef();
 
   useEffect(() => {
-    const scaleValue = isWidth ? 1 : isMobile ? 0.5 : 0.7;
+    const scaleValue = isWidth ? 1 : isMobile ? 0.44 : 0.7;
 
     let ctx = gsap.context(() => {
       gsap.from(gropuRef.current.scale, {

@@ -48,14 +48,6 @@ function App() {
       {start && <Console />}
 
       <Canvas shadows>
-        {/* <PerspectiveCamera
-          // zoom={1}
-          fov={45}
-          far={100}
-          near={0.05}
-          position={[-3, 2, 0]}
-          shadows
-        /> */}
         <Suspense>{ready && <Experience />}</Suspense>
       </Canvas>
     </>

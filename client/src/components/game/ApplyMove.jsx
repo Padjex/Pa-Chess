@@ -44,7 +44,7 @@ export default function ApplyMove({ props }) {
   const isWidth = useResponsive((state) => state.isWidth);
 
   useEffect(() => {
-    const scaleValue = isWidth ? 1 : isMobile ? 0.5 : 0.7;
+    const scaleValue = isWidth ? 1 : isMobile ? 0.44 : 0.7;
 
     let ctx = gsap.context(() => {
       gsap.to(gropuRef.current.scale, {
@@ -61,7 +61,7 @@ export default function ApplyMove({ props }) {
   }, [isMobile, isWidth]);
 
   return (
-    <group ref={gropuRef} scale={isWidth ? 1 : isMobile ? 0.5 : 0.7}>
+    <group ref={gropuRef} scale={isWidth ? 1 : isMobile ? 0.44 : 0.7}>
       <group position={[xCoo, 0.508, yCoo]}>
         <motion.group
           initial={{

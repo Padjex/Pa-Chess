@@ -7,4 +7,10 @@ body,
     width: 100%;
     height: 100%;
     user-select: none;
+
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Sakrijte scroll traku za Chrome, Safari i Opera */
 }

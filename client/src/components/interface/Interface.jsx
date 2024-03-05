@@ -5,7 +5,6 @@ import useGame from "../../store/useGame";
 import ChooseNewPiece from "./ChooseNewPiece";
 import { useState } from "react";
 
-import { useControls } from "leva";
 import iconSrc from "../../../public/gameLogo.png";
 import GameInfo from "./GameInfo";
 

@@ -115,6 +115,8 @@ io.on("connection", (socket) => {
       const keys = Object.keys(waitingPlayers);
       const firstKey = keys[0];
 
+      console.log(firstKey);
+
       delete waitingPlayers[firstKey];
 
       const room = players[firstKey].room;
@@ -407,6 +409,9 @@ function gemerateRoomName() {
 }
 
 function clearData(socketID) {
+  if (waitingPlayers[socketID]) {
+    delete waitingPlayers[socketID];
+  }
   if (players[socketID]) {
     if (playarTime[socketID]) {
       stopPlayerTimer(socketID);

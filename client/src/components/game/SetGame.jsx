@@ -16,7 +16,7 @@ export default function SetGame() {
   const groupRef = useRef();
 
   useEffect(() => {
-    const scaleValue = isWidth ? 1 : isMobile ? 0.5 : 0.7;
+    const scaleValue = isWidth ? 1 : isMobile ? 0.44 : 0.7;
 
     let ctx = gsap.context(() => {
       gsap.from(groupRef.current.scale, {

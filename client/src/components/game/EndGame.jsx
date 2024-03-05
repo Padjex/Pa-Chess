@@ -37,7 +37,6 @@ export default function EndGame() {
 
   // Temporary solution!
   useEffect(() => {
-    console.log(endGame);
     if (endGame) {
       setTimeout(() => {
         localStorage.clear();

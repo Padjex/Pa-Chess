@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, ScrollControls } from "@react-three/drei";
 
 import ChessTable from "./components/ChessTable";
 import Lights from "./components/Lights";
@@ -20,7 +20,15 @@ export default function Experience() {
 
       <Lights />
       <Background />
-      <CameraAnimation />
+      <ScrollControls
+        damping={0.243}
+        pages={1}
+        style={{
+          scrollbarWidth: " none",
+        }}
+      >
+        <CameraAnimation />
+      </ScrollControls>
     </>
   );
 }

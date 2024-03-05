@@ -30,14 +30,14 @@ export default function LoadingScreen() {
       animate([
         [
           ".default-text",
-          // { x: 20, color: "rgba(92, 135, 129, 0.1)" },
+          { x: 20, color: "rgba(92, 135, 129, 0.1)" },
           // { color: "#e6d48c" },
           { color: "#ffe4a1fc" },
           // { x: 10 },
           { duration: 0.4 },
         ],
       ]);
-      animate(".progress-bar", { opacity: "0" }, { duration: 0.2 });
+      animate(".progress-bar", { opacity: "0" }, { duration: 0.6 });
     }
   }, [started]);
 
