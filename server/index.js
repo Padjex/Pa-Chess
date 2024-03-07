@@ -366,6 +366,10 @@ io.on("connection", (socket) => {
       clearData(socket.id);
     }, 10000);
 
+    if (waitingPlayers[socket.id]) {
+      delete waitingPlayers[socket.id];
+    }
+
     console.log(`User disconnected: ${socket.id}`);
   });
 });

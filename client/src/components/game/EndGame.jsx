@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Sparkles, Text } from "@react-three/drei";
 import useGame from "../../store/useGame";
 import { useFrame } from "@react-three/fiber";
-import { euclideanModulo } from "three/src/math/MathUtils";
+import useResponsive from "../../store/useResponsive";
 
 export default function EndGame() {
   const endGame = useGame((state) => state.endGame);
@@ -10,6 +10,8 @@ export default function EndGame() {
   const playerSockedID = useGame((state) => state.playerSockedID);
   const [confirmedEnd, setConfirmedEnd] = useState(false);
   const [winner, setWinner] = useState(false);
+
+  const isMobile = useResponsive((state) => state.isMobile);
 
   useEffect(() => {
     if (endGame) {
@@ -41,9 +43,11 @@ export default function EndGame() {
       setTimeout(() => {
         localStorage.clear();
         window.location.reload();
-      }, 9000);
+      }, 10000);
     }
   }, [endGame]);
+
+  const positionY = isMobile ? 0.5 : 0.9;
 
   return (
     <>
@@ -58,8 +62,8 @@ export default function EndGame() {
             color="#fae364"
           />
           <Text
-            scale={0.4}
-            position={[0, 0.9, 0]}
+            scale={isMobile ? 0.2 : 0.4}
+            position={[0, positionY, 0]}
             color="#f5ecba"
             font="./Italiana_Regular.json"
           >

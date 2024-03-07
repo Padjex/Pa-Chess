@@ -12,7 +12,7 @@ import { Perf } from "r3f-perf";
 export default function Experience() {
   return (
     <>
-      <Perf />
+      {/* <Perf /> */}
       {/* <OrbitControls /> */}
 
       <ChessTable />
@@ -23,7 +23,7 @@ export default function Experience() {
       <ScrollControls
         // damping={0.243}
         damping={0.344}
-        pages={1}
+        pages={3}
         style={{
           scrollbarWidth: " none",
         }}

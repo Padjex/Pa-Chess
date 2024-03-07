@@ -25,8 +25,9 @@ export const CameraAnimation = () => {
 
   const groupCameraRef = useRef();
   const cameraPerspective = useRef(null);
-  const camera2 = useRef();
-  const tl = useRef();
+  const cameraOrthographic = useRef();
+  const tl1 = useRef();
+  const tl2 = useRef();
 
   const isMobile = useResponsive((state) => state.isMobile);
   const isWidth = useResponsive((state) => state.isWidth);
@@ -40,13 +41,34 @@ export const CameraAnimation = () => {
   const cameraEndY = isMobile ? 1.94 : 3.94;
 
   // Perspective to Orthographic camera
-  useEffect(() => {}, [isPerspective]);
+  useEffect(() => {
+    // if (!isPerspective) {
+    //   tl2.current = gsap.timeline();
+    //   tl2.current.to(cameraOrthographic.current.position, {
+    //     y: 2,
+    //     x: 0,
+    //     duration: 0.9,
+    //     onUpdate: () => {
+    //       cameraOrthographic.current.lookAt(0, 0.2, 0);
+    //     },
+    //     onComplete: () => {
+    //       setCameraOnScroll(true);
+    //     },
+    //   });
+    //   return () => {
+    //     tl2.current.kill();
+    //   };
+    // }
+  }, [isPerspective]);
+
+  // for resizing
+  const { viewport } = useThree();
 
   // Camera on scroll
   useEffect(() => {
     if (cameraOnScroll) {
-      tl.current = gsap.timeline();
-      tl.current.fromTo(
+      tl1.current = gsap.timeline();
+      tl1.current.fromTo(
         cameraPerspective.current.position,
         {
           z: cameraStartZ,
@@ -60,28 +82,32 @@ export const CameraAnimation = () => {
         }
       );
       return () => {
-        tl.current.kill();
+        tl1.current.kill();
       };
     }
-  }, [cameraOnScroll]);
+  }, [cameraOnScroll, viewport]);
 
   useFrame(({ camera }) => {
+    // console.log(camera.position);
     cameraPerspective.current.lookAt(0, 0.2, 0);
+    cameraOrthographic.current.lookAt(0, 0.2, 0);
     if (cameraOnScroll) {
-      tl.current.seek(scroll.offset * tl.current.duration());
-    }
-
-    if (scroll.scroll.current > 0.9 && isPerspective) {
-      setIsPerspective(false);
-    }
-    if (scroll.scroll.current < 0.9 && !isPerspective) {
-      setIsPerspective(true);
+      tl1.current.seek(scroll.offset * tl1.current.duration());
+      if (scroll.scroll.current > 0.9 && isPerspective) {
+        setIsPerspective(false);
+      }
+      if (scroll.scroll.current < 0.9 && !isPerspective) {
+        setIsPerspective(true);
+      }
     }
   });
 
   // Camera animation on started
   useEffect(() => {
+    // for test
+    let done = false;
     if (started) {
+      done = true;
       let ctx = gsap.context(() => {
         gsap.to(cameraPerspective.current.position, {
           duration: 1.7,
@@ -102,6 +128,9 @@ export const CameraAnimation = () => {
   useEffect(() => {
     if (playerColor === "black") {
       scroll.el.scrollTo({ top: 0 });
+
+      const multiplier = Math.PI / (2 * cameraStartZ);
+
       let ctx = gsap.to(cameraPerspective.current.position, {
         delay: 0.64,
         duration: 1.64,
@@ -112,14 +141,13 @@ export const CameraAnimation = () => {
 
           // Adjust z to go from 0 to pi in order to create a semi-circular path using sin(z)
 
-          const multiplier = Math.PI / (2 * cameraStartZ);
-
           const z =
             (cameraPerspective.current.position.z + Math.abs(cameraStartZ)) *
             multiplier;
 
           if (z < Math.PI) {
-            cameraPerspective.current.position.x = Math.sin(z) * 1.74;
+            cameraPerspective.current.position.x =
+              Math.sin(z) * (isMobile ? 1.74 : 2.84);
           }
         },
         onComplete: () => {
@@ -137,7 +165,7 @@ export const CameraAnimation = () => {
 
   useEffect(() => {
     if (endGame) {
-      scroll.el.scrollTo({ top: 0 });
+      // scroll.el.scrollTo({ top: 0 });
       const tl = gsap.timeline();
       const tl2 = gsap.timeline();
 
@@ -179,17 +207,17 @@ export const CameraAnimation = () => {
         />
       </group>
       <OrthographicCamera
-        ref={camera2}
+        ref={cameraOrthographic}
         makeDefault={!isPerspective}
-        // fov={}
-        position={[0, 4, 0]}
-        near={0.05}
-        far={100}
-        lookAt={[0, 0, 0]}
-        left={-1}
-        right={1}
-        top={1}
-        bottom={-1}
+        // zoom={2.5}
+        position={[0, 1, playerColor === "black" ? 0.01 : -0.01]}
+        // near={0.05}
+        // far={10}
+        // lookAt={[0, 0.2, 0]}
+        left={isMobile ? -0.6 : -2.4}
+        right={isMobile ? 0.6 : 2.4}
+        top={isMobile ? 1.4 : 1.8}
+        bottom={isMobile ? -1.4 : -1.8}
       />
     </>
   );
